@@ -2,12 +2,18 @@ import java.util.*;
 import java.io.*;
 import java.math.*;
 
-/**
- * Auto-generated code below aims at helping you parse
- * the standard input according to the problem statement.
- * ---
- * Hint: You can use the debug stream to print initialTX and initialTY, if Thor seems not follow your orders.
- **/
+/*
+https://www.codingame.com/ide/puzzle/power-of-thor-episode-1
+
+Thor moves on a map which is 40 wide by 18 high. Note that the coordinates (X and Y) start at the top left! This means the most top left cell has the coordinates "X=0,Y=0" and the most bottom right one has the coordinates "X=39,Y=17".
+
+Once the program starts you are given:
+the variable lightX: the X position of the light of power that Thor must reach.
+the variable lightY: the Y position of the light of power that Thor must reach.
+the variable initialTX: the starting X position of Thor.
+the variable initialTY: the starting Y position of Thor.
+At the end of the game turn, you must output the direction in which you want Thor to go among N, NE, E, SE, S, SW, W, NW.
+ */
 class Player {
 
     public static void main(String args[]) {
@@ -17,9 +23,8 @@ class Player {
         int initialTx = in.nextInt(); // Thor's starting X position
         int initialTy = in.nextInt(); // Thor's starting Y position
 
-        // game loop
         while (true) {
-            int remainingTurns = in.nextInt(); // The remaining amount of turns Thor can move. Do not remove this line.
+            int remainingTurns = in.nextInt();
             
             String direction = "";
 

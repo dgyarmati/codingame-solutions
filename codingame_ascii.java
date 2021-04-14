@@ -4,6 +4,7 @@ import java.math.*;
 
 /*
 https://www.codingame.com/training/easy/ascii-art
+
 ASCII art allows you to represent forms by using characters. To be precise, in our case, these forms are words. For example, the word "MANHATTAN" could be displayed as follows in ASCII art:
 
  
