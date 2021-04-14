@@ -1,34 +1,35 @@
 import java.util.*;
 import java.util.stream.IntStream;
 
-/**
- * The while loop represents the game.
- * Each iteration represents a turn of the game
- * where you are given inputs (the heights of the mountains)
- * and where you have to print an output (the index of the mountain to fire on)
- * The inputs you are given are automatically updated according to your last actions.
- **/
+/*
+https://www.codingame.com/ide/puzzle/the-descent
+At the start of each game turn, you are given the height of the 8 mountains from left to right.
+By the end of the game turn, you must fire on the highest mountain by outputting its index (from 0 to 7).
+
+Firing on a mountain will only destroy part of it, reducing its height. Your ship descends after each pass.  
+ */
 class Player {
 
     public static void main(String args[]) {
         Scanner in = new Scanner(System.in);
         int[] mountainHeights = new int[8];
 
-        // game loop
         while (true) {
             for (int i = 0; i < 8; i++) {
-                int mountainH = in.nextInt(); // represents the height of one mountain.
+                int mountainH = in.nextInt();
                 mountainHeights[i] = mountainH;
             }
 
-            int[] sortedHeights = IntStream.of(mountainHeights).sorted().toArray();
+            int maxHeight = mountainHeights[0];
+            int maxHeightIdx = 0;
+            for (int i = 1; i < mountainHeights.length; i++) {
+                if (mountainHeights[i] > maxHeight) {
+                    maxHeight = mountainHeights[i];
+                    maxHeightIdx = i;
+                }
+            }
 
-            System.out.println(IntStream.range(0, sortedHeights.length)
-                .filter(i -> sortedHeights[i] == sortedHeights[0])
-                .findFirst()
-                .orElse(-1));
-
-            //System.out.println(ArrayUtils.indexOf(sortedHeights, sortedHeights[0])); // The index of the mountain to fire on.
+            System.out.println(maxHeightIdx);
         }
     }
 }

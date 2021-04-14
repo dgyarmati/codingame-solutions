@@ -2,10 +2,19 @@ import java.util.*;
 import java.io.*;
 import java.math.*;
 
-/**
- * Auto-generated code below aims at helping you parse
- * the standard input according to the problem statement.
- **/
+/*
+https://www.codingame.com/training/easy/ascii-art
+ASCII art allows you to represent forms by using characters. To be precise, in our case, these forms are words. For example, the word "MANHATTAN" could be displayed as follows in ASCII art:
+
+ 
+# #  #  ### # #  #  ### ###  #  ###
+### # # # # # # # #  #   #  # # # #
+### ### # # ### ###  #   #  ### # #
+# # # # # # # # # #  #   #  # # # #
+# # # # # # # # # #  #   #  # # # #
+ 
+​Your mission is to write a program that can display a line of text in ASCII art in a style you are given as input.
+ */
 class Solution {
 
     public static final int NO_OF_POSSIBLE_CHARACTERS = 27;
