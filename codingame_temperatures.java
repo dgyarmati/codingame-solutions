@@ -3,42 +3,24 @@ import java.io.*;
 import java.math.*;
 import java.util.stream.*;
 
-/**
- * Auto-generated code below aims at helping you parse
- * the standard input according to the problem statement.
- **/
 class Solution {
-
     public static void main(String args[]) {
         Scanner in = new Scanner(System.in);
-        int n = in.nextInt(); // the number of temperatures to analyse
+        int N = in.nextInt();
 
-        int[] temps = new int[n];
-        for (int i = 0; i < n; i++) {
-            int t = in.nextInt(); // a temperature expressed as an integer ranging from -273 to 5526
-            temps[i] = t;
-        }
+        if (N == 0)
+            System.out.println("0");
+        else {
+            int temperature;
+            int min = Integer.MAX_VALUE;
 
-        int min = 0;
-
-        if (temps.length > 0) {
-            min = Math.abs(temps[0]);
-            for (int i = 1; i < temps.length; i++) {
-                if (Math.abs(temps[i]) < min) {
-                    min = temps[i];
-                }
+            for (int i = 0; i < N; i++) {
+                temperature = in.nextInt();
+                if (Math.abs(temperature) < Math.abs(min) || (temperature == -min && temperature > 0))
+                    min = temperature;
             }
 
-            //System.err.println(-min);
-            for (int i = 0; i < temps.length; i++) {
-                if (temps[i] == -min) {
-                    min = temps[i];
-                    break;
-                }
-            }
-
+            System.out.println(min);
         }
-
-        System.out.println(min);
     }
 }
