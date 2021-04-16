@@ -55,6 +55,6 @@ class Solution {
 			}
         }
 
-        System.out.println(unaryResult);
+        System.out.println(unaryResult + "0");
     }
 }
