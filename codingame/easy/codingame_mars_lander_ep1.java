@@ -31,5 +31,7 @@ class Player {
                 System.out.println("0 0");
             }
         }
+		
+		in.close();
     }
 }

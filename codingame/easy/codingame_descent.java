@@ -32,5 +32,7 @@ class Player {
 
             System.out.println(maxHeightIdx);
         }
+		
+		in.close();
     }
 }

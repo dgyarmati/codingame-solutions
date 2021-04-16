@@ -8,9 +8,9 @@ class Solution {
         Scanner in = new Scanner(System.in);
         int N = in.nextInt();
 
-        if (N == 0)
-            System.out.println("0");
-        else {
+        if (N == 0) {
+			System.out.println("0");	
+		} else {
             int temperature;
             int min = Integer.MAX_VALUE;
 
@@ -22,5 +22,7 @@ class Solution {
 
             System.out.println(min);
         }
+		
+		in.close();
     }
 }

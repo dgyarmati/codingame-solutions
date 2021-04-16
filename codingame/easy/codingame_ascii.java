@@ -61,5 +61,7 @@ class Solution {
         }
 
         System.out.println(res);
+		
+		in.close();
     }
 }

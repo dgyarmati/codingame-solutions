@@ -46,5 +46,7 @@ class Player {
 
             System.out.println(direction);
         }
+		
+		in.close();
     }
 }

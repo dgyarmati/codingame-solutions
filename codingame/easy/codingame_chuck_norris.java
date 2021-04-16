@@ -10,7 +10,7 @@ import java.math.*;
 
 	Write a program that takes an incoming message as input and displays as output the message encoded using Chuck Norris’ method.
 
-		Rules
+	Rules
 	Here is the encoding principle:
 
 	The input message consists of ASCII characters (7-bit)
@@ -22,43 +22,42 @@ import java.math.*;
  **/
 class Solution {
 
-    public static void main(String args[]) {
-        Scanner in = new Scanner(System.in);
-        String message = in.nextLine();
+	public static void main(String[] args) {
 		
-		String unaryResult = "";
-		int blockIdx = 0;
+		Scanner in = new Scanner(System.in);
+		char[] message = in.nextLine().toCharArray();
 		
-        for (int i = 0; i < message.length(); i++) {
-			String digitAsBinary = Integer.toBinaryString(message.charAt(i));
-            if (digitAsBinary.length() < 7) {
-                String paddingZeroes = "";
-                for (int k = 0; k < 7 - digitAsBinary.length(); k++) {
-                    paddingZeroes += "0";
-                }
-                digitAsBinary = paddingZeroes + digitAsBinary;
-            }
-			for (int j = 0; j < digitAsBinary.length(); j++) {
-				String digit = Character.toString(digitAsBinary.charAt(j));
-				
-				if (j > 0 && !digit.equals(Character.toString(digitAsBinary.charAt(j - 1)))) {
-					blockIdx = 0;
-					if (j < digitAsBinary.length() - 1) {
-						unaryResult += " ";
-					}
-				}
-				
-				if (digit.equals("1") && blockIdx == 0) {
-					unaryResult += "0 ";
-				} else if (digit.equals("0") && blockIdx == 0) {
-					unaryResult += "00 ";
-				}
-				
-				unaryResult += "0";
-				blockIdx++;
+		StringBuilder binary = new StringBuilder();
+		for (char c : message) {
+			String charAsBinaryStr = Integer.toBinaryString(c);
+			
+			// padding with leading zeroes if needed (for non-letters)
+			while (charAsBinaryStr.length() < 7) charAsBinaryStr = '0' + charAsBinaryStr;
+			
+			binary.append(charAsBinaryStr);
+		}
+		
+		int i = 0;
+		char currentChar;
+		while (i < binary.length()) {
+			if(binary.charAt(i) == '0') {
+				System.out.print("00 ");
+				currentChar = '0';
+			} else {
+				System.out.print("0 ");
+				currentChar = '1';
 			}
-        }
+			
+			while (binary.charAt(i) == currentChar) {
+				System.out.print("0");
+				i++;
+				if (i >= binary.length()) break;
+			}
+			
+			if (i < binary.length()) System.out.print(" ");
+		}
+		
+		in.close();
+	}
 
-        System.out.println(unaryResult);
-    }
 }
