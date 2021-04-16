@@ -26,35 +26,39 @@ class Solution {
         Scanner in = new Scanner(System.in);
         String message = in.nextLine();
 		
-		String quantityBlock = "";
 		String unaryResult = "";
+		int blockIdx = 0;
 		
         for (int i = 0; i < message.length(); i++) {
 			String digitAsBinary = Integer.toBinaryString(message.charAt(i));
-			String previousDigit = Character.toString(digitAsBinary.charAt(0));
-			for (int j = 1; j < digitAsBinary.length(); j++) {
+            if (digitAsBinary.length() < 7) {
+                String paddingZeroes = "";
+                for (int k = 0; k < 7 - digitAsBinary.length(); k++) {
+                    paddingZeroes += "0";
+                }
+                digitAsBinary = paddingZeroes + digitAsBinary;
+            }
+			for (int j = 0; j < digitAsBinary.length(); j++) {
 				String digit = Character.toString(digitAsBinary.charAt(j));
-				if (j == digitAsBinary.length() - 1 || !digit.equals(previousDigit)) {
-					if (previousDigit.equals("1")) {
-						quantityBlock += "0";
-						unaryResult += "0 " + quantityBlock;
-						quantityBlock = "";
-						previousDigit = "0";
-					} else {
-						quantityBlock += "0";
-						unaryResult += "00 " + quantityBlock;
-						quantityBlock = "";
-						previousDigit = "1";
-					}
+				
+				if (j > 0 && !digit.equals(Character.toString(digitAsBinary.charAt(j - 1)))) {
+					blockIdx = 0;
 					if (j < digitAsBinary.length() - 1) {
 						unaryResult += " ";
 					}
-				} else {
-					quantityBlock += "0";
 				}
+				
+				if (digit.equals("1") && blockIdx == 0) {
+					unaryResult += "0 ";
+				} else if (digit.equals("0") && blockIdx == 0) {
+					unaryResult += "00 ";
+				}
+				
+				unaryResult += "0";
+				blockIdx++;
 			}
         }
 
-        System.out.println(unaryResult + "0");
+        System.out.println(unaryResult);
     }
 }
