@@ -19,6 +19,10 @@ import java.math.*;
 	Two consecutive blocks are used to produce a series of same value bits (only 1 or 0 values):
 	- First block: it is always 0 or 00. If it is 0, then the series contains 1, if not, it contains 0
 	- Second block: the number of 0 in this block is the number of bits in the series.
+	
+	My solution is a very slight rewrite of this one:
+	https://github.com/DruidKuma/CodinGame/blob/master/src/main/java/com/druidkuma/codingame/chucknorris/ChuckNorrisEncoding.java
+	because, frankly, it's much better than what I initially came up with. :)
  **/
 class Solution {
 
