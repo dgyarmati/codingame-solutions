@@ -6,13 +6,25 @@ import java.util.*;
 import java.util.concurrent.*;
 import java.util.regex.*;
 
+/* 
+	https://www.hackerrank.com/challenges/plus-minus/problem
+	
+	Given an array of integers, calculate the ratios of its elements that are positive, negative, and zero. 
+	Print the decimal value of each fraction on a new line with  places after the decimal.
+*/
 public class Solution {
 
-    // Complete the plusMinus function below.
     static void plusMinus(int[] arr) {
-        int noOfNegatives = 0;
-        int noOfPositives = 0;
-        int noOfZeroes = 0;
+        /* 
+            Note to self:
+            In Java, you can control the precision of floating-point numbers in numerous             
+			ways. One would with printf; the other, cleaner solution is to have the                  
+			dividend as float (6-7 digits of precision) or as double (15-16 digits of                
+			precision).
+        */
+        float noOfNegatives = 0;
+        float noOfPositives = 0;
+        float noOfZeroes = 0;
         
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] < 0) {
@@ -24,9 +36,9 @@ public class Solution {
             }
         }
         
-        System.out.printf("%.6f %n", ((double) noOfPositives) / arr.length);
-        System.out.printf("%.6f %n", ((double) noOfNegatives) / arr.length);
-        System.out.printf("%.6f %n", ((double) noOfZeroes) / arr.length);
+        System.out.println(noOfPositives / arr.length);
+        System.out.println(noOfNegatives / arr.length);
+        System.out.println(noOfZeroes / arr.length);
     }
 
     private static final Scanner scanner = new Scanner(System.in);
