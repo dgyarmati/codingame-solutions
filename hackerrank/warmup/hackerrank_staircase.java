@@ -9,24 +9,19 @@ import java.util.regex.*;
 public class Solution {
 
     static void staircase(int n) {
-        int k = 1; 
-        int j = 0;
+        int m = 1; 
 
         for (int i = 0; i < n; i++) {
-            while (j < n - k) {
+            for (int j = 0; j < n - m; j++){
                 System.out.printf("%s", " ");
-                j++;
             }
-            j = 0;
-            while (j < k) {
+            for (int k = 0; k < m; k++) {
                 System.out.printf("%s", "#");
-                j++;
             }
-            k++;
-            j = 0;
             if (i < n - 1) {
                 System.out.println();
             }
+			m++;
         }
     }
 
