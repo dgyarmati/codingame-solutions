@@ -6,6 +6,20 @@ import java.util.*;
 import java.util.concurrent.*;
 import java.util.regex.*;
 
+/*
+	https://www.hackerrank.com/challenges/staircase/problem
+
+	This is a staircase of size n = 4:
+
+	   #
+	  ##
+	 ###
+	####
+	Its base and height are both equal to . It is drawn using # symbols and spaces. The last line is not preceded by any spaces.
+
+	Write a program that prints a staircase of size n.
+*/
+
 public class Solution {
 
     static void staircase(int n) {
@@ -21,7 +35,7 @@ public class Solution {
             if (i < n - 1) {
                 System.out.println();
             }
-	    m++;
+	        m++;
         }
     }
 
