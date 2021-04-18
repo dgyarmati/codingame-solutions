@@ -7,39 +7,31 @@ import java.util.concurrent.*;
 import java.util.regex.*;
 
 /*
-	https://www.hackerrank.com/challenges/staircase/problem
+    https://www.hackerrank.com/challenges/staircase/problem
 
-	This is a staircase of size n = 4:
+    This is a staircase of size n = 4:
 
-	   #
-	  ##
-	 ###
-	####
-	Its base and height are both equal to . It is drawn using # symbols and spaces. The last line is not preceded by any spaces.
+       #
+      ##
+     ###
+    ####
+    Its base and height are both equal to . It is drawn using # symbols and spaces. The last line is not preceded by any spaces.
 
-	Write a program that prints a staircase of size n.
+    Write a program that prints a staircase of size n.
 */
 
 public class Solution {
+    private static final Scanner scanner = new Scanner(System.in);
 
-    static void staircase(int n) {
-        int m = 1; 
+    private static void staircase(int n) {
 
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n - m; j++){
-                System.out.printf("%s", " ");
+        for(int i = 0; i < n; i++){
+            for(int j = 1; j <= n; j++){
+                System.out.print(j < n - i ? " " : "#");
             }
-            for (int k = 0; k < m; k++) {
-                System.out.printf("%s", "#");
-            }
-            if (i < n - 1) {
-                System.out.println();
-            }
-			m++;
+            System.out.println("");
         }
     }
-
-    private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
         int n = scanner.nextInt();
