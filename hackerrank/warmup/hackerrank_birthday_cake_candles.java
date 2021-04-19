@@ -28,11 +28,10 @@ class Result {
         int tallestCandleCount = 0;
         
         for (int candle : candles) {
-            if (candle == tallestCandle) tallestCandleCount++;
             if (candle > tallestCandle) {
                 tallestCandle = candle;
                 tallestCandleCount = 1;
-            }
+            } else if (candle == tallestCandle) tallestCandleCount++;
         }
         
         return tallestCandleCount;
