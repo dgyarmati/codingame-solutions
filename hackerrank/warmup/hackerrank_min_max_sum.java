@@ -16,16 +16,17 @@ import java.util.regex.*;
 public class Solution {
 
     static void miniMaxSum(int[] arr) {
-        Arrays.sort(arr);
+        long sum = 0;
+        int min = Integer.MAX_VALUE;
+        int max = Integer.MIN_VALUE;
         
-        long max = 0;
-        long min = 0;
         for (int i = 0; i < arr.length; i++) {
-            if (i > 0) max += arr[i];
-            if (i < arr.length - 1) min += arr[i];
+            if (arr[i] < min) min = arr[i];
+            if (arr[i] > max) max = arr[i];
+            sum += arr[i];
         }
         
-        System.out.printf("%s %s", min, max);
+        System.out.printf("%s %s", sum - max, sum - min);
     }
 
     private static final Scanner scanner = new Scanner(System.in);
