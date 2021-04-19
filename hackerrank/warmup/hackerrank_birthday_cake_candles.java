@@ -24,8 +24,18 @@ The maximum height candles are 4 units high. There are 2 of them, so return 2.
 class Result {
 
     public static int birthdayCakeCandles(List<Integer> candles) {
-        candles.sort(Comparator.reverseOrder());
-        return Collections.frequency(candles, candles.get(0));
+        int tallestCandle = Integer.MIN_VALUE;
+        int tallestCandleCount = 0;
+        
+        for (int candle : candles) {
+            if (candle == tallestCandle) tallestCandleCount++;
+            if (candle > tallestCandle) {
+                tallestCandle = candle;
+                tallestCandleCount = 1;
+            }
+        }
+        
+        return tallestCandleCount;
     }
 
 }
