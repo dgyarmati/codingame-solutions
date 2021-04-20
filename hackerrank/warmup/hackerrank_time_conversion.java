@@ -12,6 +12,8 @@ public class Solution {
 
     Note: - 12:00:00AM on a 12-hour clock is 00:00:00 on a 24-hour clock.
     - 12:00:00PM on a 12-hour clock is 12:00:00 on a 24-hour clock.
+	
+	Solution based on this one: https://github.com/RyanFehr/HackerRank/blob/master/Algorithms/Warmup/Time%20Conversion/Solution.java
      */
 
     static String timeConversion(String time) {
