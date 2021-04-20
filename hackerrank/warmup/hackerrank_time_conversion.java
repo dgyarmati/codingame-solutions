@@ -21,7 +21,7 @@ public class Solution {
         hour += ((meridiem.equals("PM") && hour != 12) ? 12 : 0);
         hour -= ((meridiem.equals("AM") && hour == 12) ? 12 : 0);
         
-        String militaryHour = hour == 0 ? "00" : String.valueOf(hour);
+        String militaryHour = hour < 10 ? "0" + hour : String.valueOf(hour);
         
         return militaryHour + time.substring(2, 8);
     }
