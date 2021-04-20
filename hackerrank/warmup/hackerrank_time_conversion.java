@@ -5,32 +5,25 @@ import java.util.*;
 import java.util.regex.*;
 
 public class Solution {
-
     /*
     https://www.hackerrank.com/challenges/time-conversion/problem
-	 
-	Given a time in 12-hour AM/PM format, convert it to military (24-hour) time.
+     
+    Given a time in 12-hour AM/PM format, convert it to military (24-hour) time.
 
-	Note: - 12:00:00AM on a 12-hour clock is 00:00:00 on a 24-hour clock.
-	- 12:00:00PM on a 12-hour clock is 12:00:00 on a 24-hour clock.
+    Note: - 12:00:00AM on a 12-hour clock is 00:00:00 on a 24-hour clock.
+    - 12:00:00PM on a 12-hour clock is 12:00:00 on a 24-hour clock.
      */
-	 
-    static String timeConversion(String s) {
-        boolean isPM = s.substring(8, s.length()).equals("PM") ? true : false;
-        boolean isTwelve = s.substring(0, 2).equals("12") ? true : false;
-        String militaryTime = "";
+
+    static String timeConversion(String time) {
+        int hour = Integer.parseInt(time.substring(0, 2));
+        String meridiem = time.substring(8, 10);
         
-        if (!isPM && isTwelve) {
-            militaryTime = s.replaceFirst("12", "00");
-        } else if (isPM && !s.substring(0, 2).startsWith("0")) {
-            militaryTime = s.replace("PM", "");
-        } else if (isPM) {
-            int hour = Integer.parseInt(s.substring(1, 2));
-            String militaryHour = String.valueOf(hour + 12);
-            militaryTime = militaryHour + s.substring(2, 8);
-        }
+        hour += ((meridiem.equals("PM") && hour != 12) ? 12 : 0);
+        hour -= ((meridiem.equals("AM") && hour == 12) ? 12 : 0);
         
-        return militaryTime;
+        String militaryHour = hour == 0 ? "00" : String.valueOf(hour);
+        
+        return militaryHour + time.substring(2, 8);
     }
 
     private static final Scanner scan = new Scanner(System.in);
