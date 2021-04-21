@@ -30,6 +30,7 @@ class Solution {
                 if (diff < minDiff) {
                     minDiff = diff;
                 }
+				if (minDiff == 0 || minDiff == 1) break;
             }
         }
 
