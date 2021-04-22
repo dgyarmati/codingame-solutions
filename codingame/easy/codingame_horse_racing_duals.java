@@ -1,6 +1,4 @@
 import java.util.*;
-import java.io.*;
-import java.math.*;
 
 /**
 https://www.codingame.com/ide/puzzle/horse-racing-duals
