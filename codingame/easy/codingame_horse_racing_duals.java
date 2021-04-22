@@ -15,26 +15,23 @@ class Solution {
     public static void main(String args[]) {
         Scanner in = new Scanner(System.in);
         int N = in.nextInt();
-        SortedSet<Integer> horseStrengths = new TreeSet<>();
+        int[] horseStrengths = new int[N];
 
         for (int i = 0; i < N; i++) {
-            horseStrengths.add(in.nextInt());
+            horseStrengths[i] = in.nextInt();
         }
-		
+
 		in.close();
 
-        int minDiff = Integer.MAX_VALUE;
-        Iterator<Integer> iterator = horseStrengths.iterator();
-        int strength1 = iterator.next();
+        Arrays.sort(horseStrengths);
 
-        while (iterator.hasNext()) {
-            int strength2 = iterator.next();
-            int diff = Math.abs(strength2 - strength1);
+        int minDiff = Math.abs(horseStrengths[0] - horseStrengths[1]);
+
+        for (int i = 1; i < N - 1; ++i) {
+            int diff = Math.abs(horseStrengths[i] - horseStrengths[i + 1]);
             if (diff < minDiff) {
                 minDiff = diff;
             }
-            if (minDiff == 0) break;
-            strength1 = strength2;
         }
 
         System.out.println(minDiff);
