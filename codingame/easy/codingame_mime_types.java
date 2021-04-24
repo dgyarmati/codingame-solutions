@@ -11,10 +11,9 @@ with the content sent. The MIME type is generally inferred from the extension of
 You have to write a program that makes it possible to detect the MIME type of a file based on its name.
 */
 
-class Solution 
-{
-    public static void main(String args[]) 
-    {
+class Solution {
+	
+    public static void main(String args[]) {
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();
         int q = in.nextInt();
